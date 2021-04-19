@@ -18,7 +18,7 @@
 					<div class="border-t-2"></div>
 					<div class="my-2">
 						<p class="font-semibold text-base mb-2">Team Member</p>
-						<div class="flex space-x-2"></div>
+						<!-- <div class="flex space-x-2">{{ cratedAt }}</div> -->
 					</div>
 					<div class="">
 						<div class="flex space-x-2 text-gray-400 text-sm my-3">
@@ -37,7 +37,9 @@
 									d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
 								/>
 							</svg>
-							<!-- <p>{{ product.created_at.toLocaleString() }}</p> -->
+							<p>
+								{{ getDate(product.created_at) }}
+							</p>
 						</div>
 						<div class="my-2 flex justify-between">
 							<p class="font-semibold text-base mb-2">Progress</p>
@@ -58,6 +60,11 @@ export default {
 		products: {
 			type: Array,
 			default: () => [],
+		},
+	},
+	methods: {
+		getDate(date) {
+			return this.$moment(date).format("MM/DD/YYYY")
 		},
 	},
 }
