@@ -12,12 +12,22 @@
 					<p class="text-xl font-semibold my-2">
 						{{ product.title }}
 					</p>
-					<div>
+					<div class="relative">
 						<img :src="product.imgUrl" alt="" />
+						<div
+							class="flex items-center justify-center absolute h-16 w-16 -bottom-4 -right-4 bg-red-500 rounded-full"
+						>
+							<p class="text-white">{{ product.price }} $</p>
+						</div>
 					</div>
 					<div class="border-t-2"></div>
 					<div class="my-2">
-						<p class="font-semibold text-base mb-2">Team Member</p>
+						<p class="font-semibold text-base mb-2">
+							Amount:
+							<span class="text-yellow-500">{{
+								product.amount
+							}}</span>
+						</p>
 						<!-- <div class="flex space-x-2">{{ cratedAt }}</div> -->
 					</div>
 					<div class="">
@@ -42,10 +52,11 @@
 							</p>
 						</div>
 						<div class="my-2 flex justify-between">
-							<p class="font-semibold text-base mb-2">Progress</p>
-							<div class="text-base text-gray-400 font-semibold">
-								<p>34%</p>
-							</div>
+							<p
+								class="text-base text-gray-500 mb-2 product-description"
+							>
+								{{ product.description }}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -69,3 +80,12 @@ export default {
 	},
 }
 </script>
+
+<style lang="scss" scoped>
+.product-description {
+	width: 200px;
+	height: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+</style>
