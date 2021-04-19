@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <navbar />
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
@@ -11,12 +12,12 @@
 
 <script>
 export default {
-  name: 'app',
+  components: { 
+    Navbar: () => import("./components/Navbar")
+   },
+  name: "app",
   mounted() {
-    fetch('http://localhost:5000/api/v1/categories')
-      .then(res => res.json())
-      .then(res => console.log(res))
-
+    this.$store.dispatch("GET_PRODUCT").then(res => console.log(res))
   }
 }
 </script>

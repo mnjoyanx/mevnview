@@ -1,4 +1,4 @@
-import { get } from 'core-js/core/dict'
 import { request } from './axios'
 
-const getProduct = () => request({method: 'get', url: `product/${id}`})
+export const getProduct = (id) => request({method: 'get', url: `products/${id}`})
+export const getProducts = () => request({method: 'get', url: `products`})
