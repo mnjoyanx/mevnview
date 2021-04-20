@@ -1,31 +1,29 @@
 <template>
 	<nav class="flex items-center justify-between flex-wrap bg-yellow-500 p-6">
 		<div class="flex items-center flex-shrink-0 text-white mr-6">
-			<span class="font-semibold text-xl tracking-tight"
-				>Tailwind CSS</span
-			>
+			<span class="font-semibold text-xl tracking-tight">Home</span>
 		</div>
 		<div class="block lg:hidden">
 			<button
 				class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
 			>
-					Menu
+				Menu
 			</button>
 		</div>
 		<div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
 			<div class="text-sm lg:flex-grow">
-				<a
-					href="#responsive-header"
+				<router-link
+					:to="{ name: 'about' }"
 					class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
 				>
-					Docs
-				</a>
-				<a
-					href="#responsive-header"
+					About
+				</router-link>
+				<router-link
+					:to="{ name: 'about' }"
 					class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
 				>
 					Examples
-				</a>
+				</router-link>
 				<a
 					href="#responsive-header"
 					class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
@@ -50,5 +48,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

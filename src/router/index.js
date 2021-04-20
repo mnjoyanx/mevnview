@@ -12,7 +12,22 @@ export default new VueRouter ({
     path: "/",
     component: () => import(/* webpackChunkName: "about" */ '@/views/Home'),
     name: "home"
-  },
+    },
+
+    {
+      path: '/products',
+      component: () => import('@/views/products/Index.vue'),
+      name: 'products',
+      redirect: {name: 'home'},
+      children: [
+        {
+          path: '/products/:id',
+          component: () => import("@/views/products/Product"),
+          name: 'current-product'
+        }
+      ]
+    },
+
   {
     path: "/about",
     component: () =>
