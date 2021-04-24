@@ -1,7 +1,11 @@
 <template>
 	<nav class="flex items-center justify-between flex-wrap bg-yellow-500 p-6">
 		<div class="flex items-center flex-shrink-0 text-white mr-6">
-			<span class="font-semibold text-xl tracking-tight">Home</span>
+			<router-link
+				:to="{ name: 'home' }"
+				class="font-semibold text-xl tracking-tight"
+				>Home</router-link
+			>
 		</div>
 		<div class="block lg:hidden">
 			<button
@@ -31,20 +35,35 @@
 					Blog
 				</a>
 			</div>
-			<div>
-				<a
-					href="#"
-					class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-					>Download</a
-				>
-			</div>
+			<template v-if="allCategories.length">
+				<category-list :allCategories="allCategories" />
+			</template>
 		</div>
 	</nav>
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex"
+
 export default {
 	name: "navbar",
+	components: {
+		CategoryList: () => import("@/components/categories/CategoryList"),
+	},
+	computed: {
+		...mapState({
+			allCategories: (state) => state.categories.categories,
+		}),
+	},
+	methods: {
+		...mapActions({
+			getCategories: "GET_CATEGORIES",
+		}),
+	},
+	mounted() {
+		console.log(this.allCategories, 22)
+		this.getCategories()
+	},
 }
 </script>
 

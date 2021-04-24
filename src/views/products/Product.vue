@@ -66,6 +66,9 @@
 										{{ getProduct.description }}
 									</p>
 								</div>
+								<button class="bg-blue-500 p-4 text-white">
+									buy
+								</button>
 							</div>
 						</div>
 					</div>
