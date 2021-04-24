@@ -38,6 +38,12 @@
 			<template v-if="allCategories.length">
 				<category-list :allCategories="allCategories" />
 			</template>
+			<button
+				class="bg-yellow-300 p-2"
+				@click="$router.push({ name: 'cart' })"
+			>
+				Cart
+			</button>
 		</div>
 	</nav>
 </template>

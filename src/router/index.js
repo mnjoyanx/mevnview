@@ -33,7 +33,12 @@ export default new VueRouter ({
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
     name: "about"
-  },
+    },
+    {
+      path: '/cart',
+      component: () => import("@/views/Cart"),
+      name: 'cart'
+  }
 ]
 
 });
