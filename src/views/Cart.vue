@@ -12,9 +12,6 @@
 				{{ cartProductsPrice }}
 			</div>
 		</template>
-		<template>
-			<p>Cart is empty please add items to it</p>
-		</template>
 	</div>
 </template>
 

@@ -66,7 +66,10 @@
 										{{ getProduct.description }}
 									</p>
 								</div>
-								<button class="bg-blue-500 p-4 text-white">
+								<button
+									class="bg-blue-500 p-4 text-white"
+									@click="addItemToCart(getProduct)"
+								>
 									buy
 								</button>
 							</div>
@@ -79,7 +82,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
+import { mapGetters, mapActions, mapMutations } from "vuex"
 export default {
 	name: "current-product",
 	computed: {
@@ -94,6 +97,13 @@ export default {
 		...mapActions({
 			getCurrentProduct: "GET_PRODUCT",
 		}),
+		...mapMutations({
+			addToCart: "GET_CART_ITEMS",
+		}),
+		addItemToCart(product) {
+			this.addToCart(product)
+			this.$router.push({ name: "cart" })
+		},
 	},
 	created() {
 		this.getCurrentProduct(this.$route.params.id)
