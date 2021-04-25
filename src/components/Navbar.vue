@@ -44,12 +44,13 @@
 			>
 				Cart
 			</button>
+			<span>{{ cartCount }}</span>
 		</div>
 	</nav>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapState, mapActions, mapGetters } from "vuex"
 
 export default {
 	name: "navbar",
@@ -60,6 +61,9 @@ export default {
 		...mapState({
 			allCategories: (state) => state.categories.categories,
 		}),
+		...mapGetters({
+			cartCount: "cartItemsCount",
+		}),
 	},
 	methods: {
 		...mapActions({
@@ -67,7 +71,7 @@ export default {
 		}),
 	},
 	mounted() {
-		console.log(this.allCategories, 22)
+		console.log(this.$router, 22)
 		this.getCategories()
 	},
 }

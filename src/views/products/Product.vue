@@ -102,7 +102,7 @@ export default {
 		}),
 		addItemToCart(product) {
 			this.addToCart(product)
-			this.$router.push({ name: "cart" })
+			// this.$router.push({ name: "cart" })
 		},
 	},
 	created() {
